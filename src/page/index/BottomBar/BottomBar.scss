@@ -1,0 +1,57 @@
+
+.bottom-bar{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: px2rem(50px);
+  display: flex;
+  border-top: 1px solid #b6b6b6;
+  background: #f3f3f3;
+  .btn-item{
+    flex: 1;
+    font-size: px2rem(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .tab-icon{
+      width: px2rem(25px);
+      height: px2rem(25px);
+      margin-bottom: px2rem(4px);
+      background-size: cover;
+    }
+    &.active{
+      color: #9c3;
+    }
+    &.my{
+      .tab-icon{
+        background-image:url("./img/Personalcenter@2x.png") ;
+      }
+    }
+    &.my.active{
+      .tab-icon{
+        background-image:url("./img/geren@2x.png") ;
+      }
+    }
+    &.home{
+      .tab-icon{
+        background-image:url("./img/home-gray@2x.png") ;
+      }
+    }
+    &.home.active{
+      .tab-icon{
+        background-image:url("./img/shouye@2x.png") ;
+      }
+    }
+    &.order{
+      .tab-icon{
+        background-image:url("./img/car@2x.png") ;
+      }
+    }
+    &.order.active{
+      .tab-icon{
+        background-image:url("./img/gouwuche@2x.png") ;
+      }
+    }
+  }
+}
