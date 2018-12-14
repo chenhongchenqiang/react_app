@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
@@ -29,7 +30,7 @@
     "react-hot-loader": "^4.3.12",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
+    "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
     "sass-resources-loader": "^2.0.0",
     "style-loader": "^0.23.1",

@@ -2,3 +2,10 @@
   $rem:37.5px;
   @return ($px/$rem)+rem
 }
+.clearfix:after{
+  content: '';
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}

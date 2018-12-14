@@ -39,7 +39,12 @@ module.exports={
     mode:'development',
     devServer: {
         contentBase:devPath,
-        hot:true,
+        port: 3004,
+        host: '192.168.0.47',
+        overlay: {
+            errors: true,
+        },
+        hot: true,
     },
     entry:entryMap,
     resolve: {
