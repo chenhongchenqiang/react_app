@@ -39,7 +39,7 @@ module.exports={
     mode:'development',
     devServer: {
         contentBase:devPath,
-        port: 3004,
+        port: 3005,
         host: '192.168.0.47',
         overlay: {
             errors: true,
@@ -48,6 +48,9 @@ module.exports={
     },
     entry:entryMap,
     resolve: {
+        alias: {
+            component:path.resolve(srcRoot,'component')
+        },
         extensions: ['.js','.jsx']
     },
     output:{

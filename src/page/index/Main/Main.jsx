@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import BottomBar from '../BottomBar/BottomBar.jsx';
-import Home from '../Home/Home'
+import Home from '../Home/Home';
+import List from '../List/List'
 
 class Main extends React.Component {
     constructor(props) {
@@ -12,7 +13,8 @@ class Main extends React.Component {
         return (
             <div>
                 <div><BottomBar/></div>
-                <div><Home/></div>
+                {/*<div><Home/></div>*/}
+                <div><List/></div>
             </div>
         )
     }
