@@ -14,21 +14,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    a{
+      &.active{
+        color: #9c3;
+      }
+    }
     .tab-icon{
       width: px2rem(25px);
       height: px2rem(25px);
       margin-bottom: px2rem(4px);
       background-size: cover;
     }
-    &.active{
-      color: #9c3;
-    }
+
     &.my{
       .tab-icon{
         background-image:url("./img/Personalcenter@2x.png") ;
       }
     }
-    &.my.active{
+    &.my  a.active{
       .tab-icon{
         background-image:url("./img/geren@2x.png") ;
       }
@@ -38,7 +41,7 @@
         background-image:url("./img/home-gray@2x.png") ;
       }
     }
-    &.home.active{
+    &.home a.active{
       .tab-icon{
         background-image:url("./img/shouye@2x.png") ;
       }
@@ -48,7 +51,7 @@
         background-image:url("./img/car@2x.png") ;
       }
     }
-    &.order.active{
+    &.order a.active{
       .tab-icon{
         background-image:url("./img/gouwuche@2x.png") ;
       }

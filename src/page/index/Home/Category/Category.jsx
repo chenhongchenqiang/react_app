@@ -7,19 +7,20 @@ import {Common} from '../../../../common';
 class Category extends React.Component {
     constructor(props) {
         super(props);
-        this.fetchData();
     }
 
-
-    fetchData() {
+    componentDidMount() {
         this.props.dispatch(getHeaderData())
     }
 
+    goCategory1(){
+        this.props.history.push('/menu')
+    }
     renderItems() {
         let items = this.props.homeData.firstIcon;
         if (items) {
             return items.map((item, index) => {
-                return <div key={index} className="category-item">
+                return <div key={index} className="category-item"  onClick={this.goCategory1.bind(this,null)}>
                     <img className="item-icon" src={Common.getImageUrl(item.picturePath, 60)}/>
                     <p className="item-name">{item.title}</p>
                 </div>

@@ -2,8 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {getList} from "../actions/listAction";
 import {Common} from '../../../common';
+import BottomBar from '../BottomBar/BottomBar.jsx';
 import './List.scss';
-import Loading from 'component/loading/loading.jsx'
+import ScrollView from 'component/ScrollView/ScrollView.jsx'
 
 class List extends React.Component {
     constructor(props) {
@@ -17,7 +18,6 @@ class List extends React.Component {
         this.getList(this.request);
         this.state = {
             isEnd: false,
-            loadingText: '加载中'
         };
     }
 
@@ -25,31 +25,17 @@ class List extends React.Component {
         this.props.dispatch(getList(request))
     }
 
-    onLoadPage() {
-        let clientHeight = document.documentElement.clientHeight;
-        let scrollHeight = document.body.scrollHeight;
-        let scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
-        let proLoadDis = 30;
-        if ((scrollTop + clientHeight) >= (scrollHeight - proLoadDis)) {
-            this.request.pageIndex++;
-            if (this.request.pageIndex > this.props.list.totalPage) {
-                this.setState({
-                    isEnd: true,
-                    loadingText: '已完成'
-                })
-            } else {
-                this.getList(this.request)
-            }
+    LoadPage() {
+        this.request.pageIndex++;
+        if (this.request.pageIndex > this.props.list.totalPage) {
+            this.setState({
+                isEnd: true,
+            })
+        } else {
+            this.getList(this.request)
         }
     }
 
-    componentWillMount() {
-        window.addEventListener('scroll', this.onLoadPage.bind(this))
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('scroll', this.onLoadPage.bind(this))
-    }
 
     renderItems() {
         let items = this.props.product;
@@ -57,7 +43,7 @@ class List extends React.Component {
             return items.map((item, index) => {
                 return (
                     <li key={index} className="">
-                        <img src={Common.getProductImageUrl(item.picturePath, 234)}/>
+                        {item.picturePath?<img src={Common.getProductImageUrl(item.picturePath, 234)}/>:null}
                         <span className="name">{item.name}</span>
                         <p className="price">{item.price}</p>
                     </li>
@@ -69,10 +55,12 @@ class List extends React.Component {
     render() {
         return (
             <div className="content">
-                <div className="recommendWrap">
-                    {this.renderItems()}
-                </div>
-                <Loading isEnd={this.state.isEnd}/>
+                <ScrollView loadCallback={this.LoadPage.bind(this)} isEnd={this.state.isEnd}>
+                    <div className="recommendWrap">
+                        {this.renderItems()}
+                    </div>
+                </ScrollView>
+                <BottomBar/>
             </div>
         )
     }

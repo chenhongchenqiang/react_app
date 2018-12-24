@@ -2,7 +2,7 @@
  * Created by lin on 2017/3/10.
  */
 window.pageConfig = {
-    "RequestBaseUrl": "http://192.168.0.69:8081",//http://api.sub1969.com，http://192.168.0.12:9001,http://api.mmm920.com,//http://122.224.127.158:8081，http://192.168.0.69:8081
+    "RequestBaseUrl": "https://w.mmm920.com",//http://api.sub1969.com，http://192.168.0.12:9001,http://api.mmm920.com,//http://122.224.127.158:8081，http://192.168.0.69:8081
     "RequestServiceUrl":"http://192.168.0.69:8099",//http://192.168.0.62:8099，https://service.mmm920.com
     "ImageBaseUrl": "http://www.mmm920.com/upload",//http://www.mmm920.com/upload,http://192.168.0.69:8084/upload
     "MaxAddressCount": 10,
