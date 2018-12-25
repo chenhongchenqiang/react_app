@@ -1,6 +1,7 @@
 const path=require('path');
 const webpack=require('webpack')
 const HtmlWebpackPlugin=require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const fs = require('fs');
 const srcRoot=path.resolve(__dirname,'src');
 const devPath=path.resolve(__dirname,'dev');
@@ -71,6 +72,10 @@ module.exports={
         ]
     },
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ].concat(htmlArray)

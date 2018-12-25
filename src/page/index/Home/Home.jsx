@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header/Header';
+import Top from './top/top';
 import Category from './Category/Category';
 import BottomBar from '../BottomBar/BottomBar.jsx';
 class Home extends React.Component {
@@ -10,7 +10,7 @@ class Home extends React.Component {
     render() {
         return (
             <div style={{background:'#fff'}}>
-                <Header/>
+                <Top/>
                 <Category  history ={this.props.history} />
                 <BottomBar/>
             </div>

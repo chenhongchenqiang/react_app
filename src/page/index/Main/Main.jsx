@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, BrowserRouter as Router, withRouter, Switch} from 'react-router-dom'
+import {Route, withRouter} from 'react-router-dom'
 import Home from '../Home/Home';
 import List from '../List/List';
 import My from '../My/My';

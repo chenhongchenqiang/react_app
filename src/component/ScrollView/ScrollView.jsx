@@ -1,7 +1,11 @@
 import React from 'react';
 import Loading from 'component/loading/loading.jsx'
-
+import {connect} from 'react-redux';
 class ScrollView extends React.Component{
+    constructor(props){
+        super(props)
+        this._onLoadPage=this.onLoadPage.bind(this)
+    }
     onLoadPage() {
         let clientHeight = document.documentElement.clientHeight;
         let scrollHeight = document.body.scrollHeight;
@@ -9,17 +13,20 @@ class ScrollView extends React.Component{
         let proLoadDis = 30;
         if ((scrollTop + clientHeight) >= (scrollHeight - proLoadDis)) {
             if(!this.props.isEnd){
+                if(!this.props.readyToload){
+                    return
+                }
                 this.props.loadCallback&& this.props.loadCallback()
             }
         }
     }
 
     componentWillMount() {
-        window.addEventListener('scroll', this.onLoadPage.bind(this))
+        window.addEventListener('scroll',  this._onLoadPage)
     }
 
     componentWillUnmount() {
-        window.removeEventListener('scroll', this.onLoadPage.bind(this))
+        window.removeEventListener('scroll',  this._onLoadPage)
     }
     render(){
         return(
@@ -30,4 +37,8 @@ class ScrollView extends React.Component{
         )
     }
 }
-export default ScrollView
+export default connect(
+    state=>({
+        readyToload:state.scrollViewReducer.readyToload
+    })
+)(ScrollView)

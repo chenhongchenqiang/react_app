@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.scss';
+import './top.scss';
 import SeachBar from '../SeachBar/SeachBar'
 class Header extends React.Component{
     constructor(props){

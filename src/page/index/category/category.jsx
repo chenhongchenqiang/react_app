@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from 'component/Header/Header'
+import Header from 'component/header/header'
 import {connect} from 'react-redux';
 import {Common} from '../../../common';
 import {NavLink,withRouter} from 'react-router-dom'
@@ -32,7 +32,6 @@ class Category extends React.Component {
         let categoryId = this.props.location.state.categoryId;
         this.request.categoryId=categoryId;
         this.getCategory(this.request);
-
     }
     componentWillReceiveProps(nextProps){
 
