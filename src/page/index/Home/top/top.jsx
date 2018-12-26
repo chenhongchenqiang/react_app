@@ -9,7 +9,7 @@ class Header extends React.Component{
         return(
             <div className="header">
                 <SeachBar/>
-                <img className="banner-img" src="https://m.mmm920.com/upload/banner/20181207181519030dd.jpg"/>
+                <img className="banner-img"  src={require('../img/banner.jpg')}/>
             </div>
         )
     }
